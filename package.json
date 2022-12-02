@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "php": "pwd && php -S localhost:9080",
+    "watch": "webpack --watch --progress",
+    "dev": "pwd && php -S localhost:9080"
+  },
+  "dependencies": {
+    "artisan": "^0.1.2",
+    "http-serve": "^1.0.1",
+    "ngx": "^2.4.0",
+    "node-php-server": "^0.1.2",
+    "php": "^1.0.2",
+    "phpcgijs": "^1.0.0-beta7",
+    "run-php": "^0.0.1",
+    "sphp": "^0.6.3"
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0",
+    "http-server": "^14.1.1",
+    "laravel-mix-artisan-serve": "^2.0.0"
+  }
+}

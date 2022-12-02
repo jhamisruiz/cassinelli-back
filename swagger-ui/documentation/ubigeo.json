@@ -1,0 +1,128 @@
+{
+    "swagger": "2.0",
+    "host": "localhost:9280",
+    "basePath": "/v1",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/ubigeo-departamento/{departamento}": {
+            "get": {
+                "tags": [
+                    "Buscar Departamentos por codigo ubigeo"
+                ],
+                "summary": "Get departamento by ubigeo",
+                "description": "",
+                "operationId": "getOrderById",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "path",
+                    "name": "departamento",
+                    "description": "Se requiere un parametro, codigo ubigeo. ",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/ubigeo-provincia/{provincia}": {
+            "get": {
+                "tags": [
+                    "Buscar Provincia por codigo ubigeo"
+                ],
+                "summary": "Get provincia by ubigeo",
+                "description": "",
+                "operationId": "getOrderById",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "path",
+                    "name": "provincia",
+                    "description": "Se requiere un parametro, codigo ubigeo. ",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        },
+        "/ubigeo-distrito/{distrito}": {
+            "get": {
+                "tags": [
+                    "Buscar Distrito por codigo ubigeo"
+                ],
+                "summary": "Get distrito by ubigeo",
+                "description": "",
+                "operationId": "getOrderById",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "path",
+                    "name": "distrito",
+                    "description": "Se requiere un parametro, codigo ubigeo. ",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {},
+    "definitions": {
+        "Params": {
+            "type": "object",
+            "properties": {
+                "departamento": {
+                    "type": "string",
+                    "example": "000000"
+                },
+                "provincia": {
+                    "type": "string",
+                    "example": "130000"
+                },
+                "distrito": {
+                    "type": "string",
+                    "example": "130100"
+                }
+            },
+            "xml": {
+                "name": "Tag"
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}

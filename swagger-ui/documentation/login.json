@@ -1,0 +1,194 @@
+{
+  "swagger": "2.0",
+  "host": "localhost:9080",
+  "basePath": "/v1",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "tags": [
+          "User Admin Login"
+        ],
+        "summary": "Logs user into the system",
+        "description": "",
+        "operationId": "loginUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "Object login para usuarios admin",
+          "type": "object",
+          "properties": {
+            "user_email": {
+              "example": "jhamis"
+            },
+            "password": {
+              "example": "admin123s"
+            }
+          },
+          "required": true
+        }],
+        "responses": {
+          "201": {
+            "description": "Successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "15"
+                },
+                "names": {
+                  "example": "jhamis"
+                },
+                "last_name": {
+                  "example": "ruiz castillo"
+                },
+                "email": {
+                  "example": "jhamsel.rec@gmail.com"
+                },
+                "user_name": {
+                  "example": "jhamis"
+                },
+                "phone": {
+                  "example": "987452123"
+                },
+                "photo": {
+                  "example": null
+                },
+                "fecha_registro": {
+                  "example": "2022-02-25 15:17:39"
+                },
+                "estado": {
+                  "example": 1
+                },
+                "type": {
+                  "example": "1"
+                },
+                "token": {
+                  "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NjAxODkwODIsImV4cCI6MTY2MDI3NTQ4MiwiZGF0YSI6eyJpZCI6MTUsImVtYWlsIjoiamhhbXNlbC5yZWNAZ21haWwuY29tIn19.LNLqghfVvA0sbTx1gkUlwK08Xq8lFdNR-TIIRGeE2Kv338OGjUX8158xTLampYle63PW1Tg2bEBIJJHNy1FP9Q"
+                },
+                "expire": {
+                  "example": 1660275482
+                },
+                "sid": {
+                  "example": "120DF37295A64838B2E8DF280E590AA6"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Error: Invalid data supplied",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "example": "Bad Request"
+                },
+                "code": {
+                  "type": "integer",
+                  "example": 2001
+                },
+                "message": {
+                  "example": "(#2001)Las contraseñas no coinciden."
+                },
+                "statusCode": {
+                  "type": "integer",
+                  "example": 4000
+                },
+                "timestamp": {
+                  "example": "2022-08-10 22:36:18"
+                },
+                "path": {
+                  "example": "/v1/login"
+                },
+                "debug": {
+                  "example": "(#2001)Las contraseñas no coinciden."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/logout": {
+      "post": {
+        "tags": [
+          "User Admin Logout"
+        ],
+        "summary": "Logs out current logged in user session",
+        "description": "",
+        "operationId": "logoutUser",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {},
+  "definitions": {
+    "Login": {
+      "type": "object",
+      "properties": {
+        "user_email": {
+          "type": "string",
+          "description": "usuario o email"
+        },
+        "password": {
+          "type": "string",
+          "description": "password mayor a 8 caracteres"
+        }
+      }
+    },
+    "Logout": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "userStatus": {
+          "type": "integer",
+          "description": "User Status"
+        }
+      }
+    }
+  }
+}

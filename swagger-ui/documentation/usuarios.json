@@ -1,0 +1,245 @@
+{
+    "swagger": "2.0",
+    "host": "localhost:9080",
+    "basePath": "/v1",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/usuarios": {
+            "post": {
+                "tags": [
+                    "Crear Usuario"
+                ],
+                "summary": "Crea usuarios enviando un arreglo de datos",
+                "description": "",
+                "operationId": "createUsersWithArrayInput",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "List of user object",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/post-User"
+                    }
+                }],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Listar Usuario"
+                ],
+                "summary": "Lista y pagina todos los usuarios",
+                "description": "",
+                "operationId": "createUsersWithArrayInput",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "List of user object",
+                    "required": true,
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/usuarios/{id}": {
+            "get": {
+                "tags": [
+                    "Buscar Usuario por Id"
+                ],
+                "summary": "Get user by user id",
+                "description": "",
+                "operationId": "getOrderById",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "in": "path",
+                    "name": "id",
+                    "description": "Se requiere un parametro, id usuario. ",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/get-User-by-id"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Actualizar Usuario"
+                ],
+                "summary": "Updated user",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "updateUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "description": "name that need to be updated",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Updated user object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/get-User-by-id"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "202": {
+                        "description": "error"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Eliminar Usuario"
+                ],
+                "summary": "Delete user",
+                "description": "This can only be done by the logged in user.",
+                "operationId": "deleteUser",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                    "name": "username",
+                    "in": "path",
+                    "description": "The name that needs to be deleted",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "bearerAuth": {
+            "name": "Authorization",
+            "in": "header",
+            "type": "apiKey",
+            "description": "JWT Authorization header"
+        }
+    },
+    "security": [{
+        "bearerAuth": []
+    }],
+    "definitions": {
+        "post-User": {
+            "type": "object",
+            "properties": {
+                "names": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "user_name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "rep_password": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                }
+            }
+        },
+        "get-User-by-id": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "names": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "user_name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "estado": {
+                    "type": "bool"
+                },
+                "phone": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}
