@@ -297,4 +297,8 @@ class ControllerOrden
         }
         REQUEST::RESPONDER(1, 200);
     }
+
+    static public function DELETE($data){
+
+    }
 }
