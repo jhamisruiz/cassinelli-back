@@ -263,8 +263,7 @@ class ControllerOrden
                         $insert = [
                             "table" => "orden_detalle_impuesto",
                             "idorden_detalle" => $detalle[$j]['id'],
-                            "id_insumo" => $d_imp[$d]["id_insumo"],
-                            "id_impuesto" => $d_imp[$d]["id_impuesto"],
+                            "id_impuesto" => $d_imp[$d]["id"],
                             "valor" => $d_imp[$d]["valor"],
                         ];
                         $res = ModelQueryes::INSERT($insert);
@@ -285,7 +284,7 @@ class ControllerOrden
                 ];
                 $lsdin = ModelQueryes::INSERT($insert);
                 ///detalle impuestos insumo
-                $d_imp = $detalle[$j]["detalle_impuesto"];
+                $d_imp = $detalle[$j]["detalle_impuesto"] ?? [];
 
                 if (isset($lsdin) && $lsdin) {
                     for ($d = 0; $d < count($d_imp); $d++) {
