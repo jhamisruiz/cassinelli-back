@@ -206,7 +206,7 @@ class ControllerOrden
                     }
                 }
             }
-            REQUEST::RESPONDER(1, 200);;
+            REQUEST::RESPONDER(1, 200);
         }
     }
 
@@ -303,7 +303,17 @@ class ControllerOrden
         REQUEST::RESPONDER(1, 200);
     }
 
-    static public function DELETE($data){
-
+    static public function DELETE($data)
+    {
+        $delete = [
+            "table" => "ordenes_compra",
+            "id" => $data,
+        ];
+        $response = ModelQueryes::DELETE($delete);
+        if (!$response) {
+            REQUEST::RESPONDER(1, 200);
+        } else {
+            Errors::__Log('No se elimino el Orden.', 202);
+        }
     }
 }

@@ -37,10 +37,17 @@ class RouterOrdenCompra
         $response = ControllerOrden::CREAR($data);
     }
 
-    public function EDITAR(){
+    public function EDITAR()
+    {
         $data = $_REQUEST['REQUEST_ARRAY_DATA'];
 
         $response = ControllerOrden::EDITAR($data);
+    }
+
+    public function DELETE()
+    {
+        $id = $_GET['idorden'];
+        $response = ControllerOrden::DELETE($id);
     }
 }
 
@@ -94,12 +101,19 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 }
 
 if (strtoupper($_SERVER['REQUEST_METHOD']) == 'PUT') {
-//echo 'llego';
+    //echo 'llego';
     if (
         isset($_REQUEST['REQUEST_ARRAY_DATA']['componentid']) &&
         $_REQUEST['REQUEST_ARRAY_DATA']['componentid'] == 'ORDENCOMPRAS-EDIT'
     ) {
         $put = new RouterOrdenCompra();
         $put->EDITAR();
+    }
+}
+
+if (strtoupper($_SERVER['REQUEST_METHOD']) === 'DELETE') {
+    if ($_GET['idorden']) {
+        $del = new RouterOrdenCompra();
+        $del->DELETE();
     }
 }
