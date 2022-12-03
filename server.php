@@ -243,6 +243,15 @@ $router = [
         "headers_to_pass" =>  null,
         "url_pattern" => "/orden-compras"
     ],
+    [
+        "endpoint" => "/orden-compras/{idorden}", //elimina por id
+        "method" => "DELETE",
+        "folder_name" => "ordencompra",
+        "file_name" => null,
+        "querystring_params" => [],
+        "headers_to_pass" =>  null,
+        "url_pattern" => "/orden-compras"
+    ],
     //NOTE: extra....
     //////////////endpoint MERCADOPAGO -
     [
