@@ -135,6 +135,11 @@ class ControllerOrden
                     $impuesto[$j]['valor'] = (float)$impuesto[$j]['valor'];
                 }
                 $detalle[$i]['detalle_impuesto'] = $impuesto;
+
+                $detalle[$i]['insumo'] = (object)[
+                    "id" => $detalle[$i]['id_insumo'],
+                    "nombre" => $detalle[$i]['nombre'],
+                ];;
             }
 
 
