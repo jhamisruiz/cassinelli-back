@@ -252,6 +252,35 @@ $router = [
         "headers_to_pass" =>  null,
         "url_pattern" => "/orden-compras"
     ],
+    ///////ALMACEN ingresos, salidas
+    [
+        "endpoint" => "/almacen-ingresos", //lista todos
+        "method" => "GET",
+        "folder_name" => "almacen",
+        "file_name" => "ingresos",
+        "querystring_params" => ['start', 'length', 'search', 'order'],
+        "headers_to_pass" =>  null,
+        "url_pattern" => "/almacen-ingresos"
+    ],
+    [
+        "endpoint" => "/almacen-ingresos-orden-compras/{idordencompra}", //busca por ID
+        "method" => "GET",
+        "folder_name" => "almacen",
+        "file_name" => "ingresos",
+        "querystring_params" => [],
+        "headers_to_pass" =>  null,
+        "url_pattern" => "/almacen-ingresos-orden-compras"
+    ],
+    ///////ALMACEN ingresos, salidas
+    [
+        "endpoint" => "/almacen-stock", //lista todos
+        "method" => "GET",
+        "folder_name" => "almacen",
+        "file_name" => "stock",
+        "querystring_params" => ['start', 'length', 'search', 'order'],
+        "headers_to_pass" =>  null,
+        "url_pattern" => "/almacen-stock"
+    ],
     //NOTE: extra....
     //////////////endpoint MERCADOPAGO -
     [
