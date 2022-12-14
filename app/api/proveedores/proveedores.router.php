@@ -21,7 +21,7 @@ class RouterProveedores
 
         $params = ['id', 'nombre', 'codigo', 'descripcion']; #columnas por las que se realizara la busqueda
 
-        $response = ModelQueryes::SELECT_NV($table, $columns, $params, $data, $_GET["idproveedor"], 'id_proveedor'); #funcion para traer la data
+        $response = ModelQueryes::SELECT_NV($table, $columns, $params, $data, 'id_proveedor=' . $_GET["idproveedor"]); #funcion para traer la data
         if ($response) {
             for ($i = 0; $i < count($response); $i++) {
                 $um = ControllerQueryes::SELECT(

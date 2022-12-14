@@ -352,14 +352,14 @@ class ModelQueryes
     }
 
     /* ============search prod move========== */
-    static public function SELECT_NV($table, $columns, $params, $data, $value = 0, $key = 'id')
+    static public function SELECT_NV($table, $columns, $params, $data, $where = null)
     {
         $start =  $data['start'] ? $data['start'] : 0;
         $length =  $data['length'] ? $data['length'] : 0;
         $order =  $data['order'];
         //return ModelQueryes::CONVERT($params, $data['search']);
         $search = ModelQueryes::CONVERT($params, $data['search']);
-        $table = $value ? $table . ' where ' . $key . '=' . $value : $table;
+        $table = $where ? $table . ' where ' . $where : $table;
         //echo $table;
         try {
             $stmt = Conexion::conectar()->prepare("CALL prueba(:strt,:lngt,\"$search\",'$table','$columns','$order')");

@@ -31,6 +31,7 @@ class RouterSide
             if (isset($submenu) && COUNT($submenu)) {
                 $menu[$i]['submenu'] = $submenu;
             }
+            $menu[$i]['isopen'] = false;
         }
         REQUEST::RESPONDER($menu, 200);
         exit;

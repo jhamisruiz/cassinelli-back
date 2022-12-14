@@ -71,13 +71,30 @@ class ControllerOrden
     static public function BUSCARBYID($id)
     {
         $select = [
-            "*" => "*",
+            "O.id" => "",
+            "O.codigo" => "",
+            "O.descripcion" => "",
+            "O.id_proveedor" => "",
+            "O.fecha_registro" => "",
+            "O.fecha_update" => "",
+            "O.id_estado" => "",
+            "O.estado" => "",
+            "O.moneda" => "",
+            "O.id_cuenta" => "",
+            "O.igv" => "",
+            "O.percepcion" => "",
+            "O.total_impuesto" => "",
+            "O.subtotal" => "",
+            "O.total" => "",
+            "O.id_empresa" => "",
+            "P.nombre" => "nombre_proveedor",
         ];
         $tables = [
-            "ordenes_compra" => "" #1-1
+            "ordenes_compra O" => "proveedor P",
+            "O.id_proveedor" => "P.id",
         ];
         $where = [
-            "id" => "=" . $id,
+            "O.id" => "=" . $id,
         ];
         $response = ModelQueryes::SELECT($select, $tables, $where);
         if (isset($response[0])) {
